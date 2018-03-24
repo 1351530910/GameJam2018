@@ -18,6 +18,11 @@ public class ColletableScript : MonoBehaviour {
     {
         if (other.CompareTag("Player"))
         {
+			if (this.tag == "BigFish") {
+
+			ViewController.score++;
+			}
+
             ViewController.score++;
             GameObject.Destroy(this.gameObject);
             ViewController.Update();
