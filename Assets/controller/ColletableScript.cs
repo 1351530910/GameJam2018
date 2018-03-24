@@ -13,6 +13,11 @@ public class ColletableScript : MonoBehaviour {
 	
 	void Update () {
 		
+			transform.Translate(new Vector2(0f, -0.02f));  
+
+		if(transform.position.y<-5.0f){
+			GameObject.Destroy (this.gameObject);
+		}
 	}
 
     private void OnTriggerEnter(Collider other)
