@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ColletableScript : MonoBehaviour {
 
+
 	
 	void Start () {
 		
@@ -19,12 +20,21 @@ public class ColletableScript : MonoBehaviour {
         if (other.CompareTag("Player"))
         {
 			if (this.tag == "BigFish") {
-
+			ViewController.score++;
 			ViewController.score++;
 			}
 
-            ViewController.score++;
-            GameObject.Destroy(this.gameObject);
+			else if (this.tag == "SlowFish") {
+				PlayerScript.velocity = 0.1f; 
+			}
+			else if (this.tag == "InvertFish") {
+				PlayerScript.inversion = -1; 
+			}
+			else{
+				ViewController.score++;
+			}
+
+			GameObject.Destroy(this.gameObject);
             ViewController.Update();
             Debug.Log(ViewController.score);
         }
