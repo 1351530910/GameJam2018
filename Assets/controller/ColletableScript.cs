@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ColletableScript : MonoBehaviour {
 	
-	void Update () {
+	void FixedUpdate () {
 		
 		transform.Translate(new Vector2(0f, 0.04f));  
 

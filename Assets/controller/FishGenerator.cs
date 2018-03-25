@@ -21,7 +21,7 @@ public class FishGenerator : MonoBehaviour {
 	private float debuffdroprnd;
 	private float height;
 	public float resetTimer;
-	private Quaternion rotation = new Quaternion(0,0,0,0);
+	private static Quaternion rotation = new Quaternion(0,0,0,0);
 
 	// Use this for initialization
 	void Start () {

@@ -5,12 +5,12 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 {
 
-	public static float velocity = 0.2f;
-	public static float jump = 200;
+	public static float velocity; 
+	public static float jump = 300;
 	public static Rigidbody2D rigidbody;
 	public static bool jumping = false;
-	public static bool right = true;
-	public static int inversion = 1;
+	public static bool right;
+	public static int inversion;
 
 	public GameObject imageNormal;
 	public GameObject imageNormalJump;
@@ -21,11 +21,14 @@ public class PlayerScript : MonoBehaviour
 
 	//public GameObject camera;
 
+	void awake(){
+		
+	}
 
 	void Start ()
 	{
 		//camera = GameObject.Find ("Main Camera");
-
+		Debug.Log("did start");
 		imageNormal = GameObject.Find ("imageNormal");
 		imageNormalJump = GameObject.Find ("imageNormalJump");
 		imageSlowed = GameObject.Find ("imageSlowed");
@@ -40,8 +43,9 @@ public class PlayerScript : MonoBehaviour
 		imageInverted.SetActive (false);
 		imageInvertedJump.SetActive (false);
 
-
-
+		right = true;
+		velocity = 0.2f;
+		inversion = 1;
 		rigidbody = this.GetComponent<Rigidbody2D> ();
 		Physics2D.gravity = new Vector2 (0, -30);
 	}
@@ -55,7 +59,7 @@ public class PlayerScript : MonoBehaviour
 		float horizontalMovement = Input.GetAxis ("Horizontal")  * inversion;
 		float verticalMovement = Input.GetAxis ("Vertical");
 		Debug.Log ("vertical" + verticalMovement);
-		if (transform.position.y <1f) {
+		if (transform.position.y <0.5f) {
 			if (verticalMovement > 0) {
 				rigidbody.AddForce (new Vector2 (0, jump));
 			}
@@ -65,17 +69,23 @@ public class PlayerScript : MonoBehaviour
 				imageSlowed.SetActive (false);
 				imageNormal.SetActive (false);
 				imageInvertedJump.SetActive (false);
+				imageSlowedJump.SetActive (false);
+				imageNormalJump.SetActive (false);
 			} else if (velocity < 0.2f){
 					imageSlowed.SetActive (true);
 					imageSlowedJump.SetActive (false);
 					imageNormal.SetActive (false);
 					imageInverted.SetActive (false);
+				imageInvertedJump.SetActive (false);
+				imageNormalJump.SetActive (false);
 		
 			} else {
 				imageNormal.SetActive (true);
 				imageNormalJump.SetActive (false);
 				imageSlowed.SetActive (false);
 				imageInverted.SetActive (false);
+				imageSlowedJump.SetActive (false);
+				imageInvertedJump.SetActive (false);
 			}
 
 		} else {
@@ -85,16 +95,23 @@ public class PlayerScript : MonoBehaviour
 				imageInverted.SetActive(false);
 				imageSlowed.SetActive (false);
 				imageNormal.SetActive (false);
+				imageSlowedJump.SetActive (false);
+				imageNormalJump.SetActive (false);
 			} else if (velocity < 0.2f) {
 				imageSlowedJump.SetActive (true);
 				imageSlowed.SetActive (false);
 				imageNormal.SetActive (false);
 				imageInverted.SetActive(false);
+				imageInvertedJump.SetActive (false);
+				imageNormalJump.SetActive (false);
+
 			} else {
 				imageNormalJump.SetActive (true);
 				imageSlowed.SetActive (false);
 				imageNormal.SetActive (false);
 				imageInverted.SetActive(false);
+				imageSlowedJump.SetActive (false);
+				imageInvertedJump.SetActive (false);
 			}
 		}
 
@@ -125,10 +142,10 @@ public class PlayerScript : MonoBehaviour
 			}
 
 		else if (other.tag == "SlowFish") {
-				PlayerScript.velocity = 0.1f; 
+				velocity = 0.1f; 
 			}
 		else if (other.tag == "InvertFish") {
-				PlayerScript.inversion = -1; 
+				inversion = -1; 
 			}
 		else if(other.tag == "Fish"){
 
