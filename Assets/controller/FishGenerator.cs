@@ -15,6 +15,8 @@ public class FishGenerator : MonoBehaviour {
 	public List<GameObject> slowFishList = new List<GameObject> ();
 	public List<GameObject> invertFishList = new List<GameObject> ();
 
+	private bool fat;
+
 	private int rnd;
 	private int debuffrnd;
 	private float droprnd;
@@ -25,6 +27,9 @@ public class FishGenerator : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+		fat = false;
+
 		Fish = GameObject.Find ("Fish");
 		BigFish = GameObject.Find ("BigFish");
 		SlowFish = GameObject.Find ("SlowFish");
@@ -55,7 +60,7 @@ public class FishGenerator : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 
-		if (Time.time > (resetTimer + (109f / 60f))) {
+		if (Time.time > (resetTimer + (109f / 60f/2f))) {
 
 			resetTimer = Time.time;
 			rnd = Random.Range (0, 100);
