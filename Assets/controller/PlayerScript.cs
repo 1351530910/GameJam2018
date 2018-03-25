@@ -5,9 +5,9 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 {
 
-	public static float velocity = 0.3f;
-	public static float jump = 1000;
-	public static Rigidbody rigidbody;
+	public static float velocity = 0.2f;
+	public static float jump = 200;
+	public static Rigidbody2D rigidbody;
 	public static bool jumping = false;
 	public static bool right = true;
 	public static int inversion = 1;
@@ -19,12 +19,12 @@ public class PlayerScript : MonoBehaviour
 	public GameObject imageInverted;
 	public GameObject imageInvertedJump;
 
-	public GameObject camera;
+	//public GameObject camera;
 
 
 	void Start ()
 	{
-		camera = GameObject.Find ("Main Camera");
+		//camera = GameObject.Find ("Main Camera");
 
 		imageNormal = GameObject.Find ("imageNormal");
 		imageNormalJump = GameObject.Find ("imageNormalJump");
@@ -42,23 +42,22 @@ public class PlayerScript : MonoBehaviour
 
 
 
-		rigidbody = this.GetComponent<Rigidbody> ();
-		Physics.gravity = new Vector3 (0, -160, 0);
+		rigidbody = this.GetComponent<Rigidbody2D> ();
+		Physics2D.gravity = new Vector2 (0, -30);
 	}
 
 
 	private void FixedUpdate ()
 	{
-		Vector3 camerapos = camera.transform.position;
-		camerapos.x = transform.position.x;
-		camera.transform.position = camerapos;
+		//Vector3 camerapos = camera.transform.position;
+		//camerapos.x = transform.position.x;
+		//camera.transform.position = camerapos;
 		float horizontalMovement = Input.GetAxis ("Horizontal")  * inversion;
 		float verticalMovement = Input.GetAxis ("Vertical");
 
-
-		if (transform.position.y < -2.3f) {
+		if (transform.position.y < 1.0f) {
 			if (verticalMovement > 0) {
-				rigidbody.AddForce (new Vector3 (0, jump, 0));
+				rigidbody.AddForce (new Vector2 (0, jump));
 			}
 				
 			if (inversion == -1) {
@@ -66,7 +65,7 @@ public class PlayerScript : MonoBehaviour
 				imageSlowed.SetActive (false);
 				imageNormal.SetActive (false);
 				imageInvertedJump.SetActive (false);
-			} else if (velocity < 0.3f){
+			} else if (velocity < 0.2f){
 					imageSlowed.SetActive (true);
 					imageSlowedJump.SetActive (false);
 					imageNormal.SetActive (false);
@@ -75,6 +74,8 @@ public class PlayerScript : MonoBehaviour
 			} else {
 				imageNormal.SetActive (true);
 				imageNormalJump.SetActive (false);
+				imageSlowed.SetActive (false);
+				imageInverted.SetActive (false);
 			}
 
 		} else {
@@ -84,35 +85,60 @@ public class PlayerScript : MonoBehaviour
 				imageInverted.SetActive(false);
 				imageSlowed.SetActive (false);
 				imageNormal.SetActive (false);
-			} else if (velocity < 0.3f) {
+			} else if (velocity < 0.2f) {
 				imageSlowedJump.SetActive (true);
 				imageSlowed.SetActive (false);
 				imageNormal.SetActive (false);
 				imageInverted.SetActive(false);
 			} else {
 				imageNormalJump.SetActive (true);
+				imageSlowed.SetActive (false);
 				imageNormal.SetActive (false);
+				imageInverted.SetActive(false);
 			}
 		}
 
 		if (horizontalMovement != 0) {
 			if (horizontalMovement > 0 && !right) {
-				transform.Rotate (new Vector3 (0, 180, 0));
+				transform.Rotate  (new Vector3 (0, 180,0));
 				right = !right;
 			}
 			if (horizontalMovement < 0 && right) {
-				transform.Rotate (new Vector3 (0, 180, 0));
+				transform.Rotate (new Vector3 (0, 180,0));
 				right = !right;
 			}
 
-			Vector3 currentpos = transform.position;
+			Vector2 currentpos = transform.position;
 			currentpos.x += velocity * horizontalMovement;
 			transform.position = currentpos;
 		}
 
+	}
 
 
+	// Collision with fish
+	private void OnTriggerEnter2D(Collider2D other)
+	{
 
+		if (other.tag == "BigFish") {
+			ScoreController.AddScore (3);
+			}
+
+		else if (other.tag == "SlowFish") {
+				PlayerScript.velocity = 0.1f; 
+			}
+		else if (other.tag == "InvertFish") {
+				PlayerScript.inversion = -1; 
+			}
+		else if(other.tag == "Fish"){
+
+			ScoreController.AddScore (1);
+
+			}
+		Debug.Log ("before fish");
+			other.gameObject.SetActive (false);
+		//	ViewController.Update();
+			Debug.Log("score" + ScoreController.score);
 
 	}
 }

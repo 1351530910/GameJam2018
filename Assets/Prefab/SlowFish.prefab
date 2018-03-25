@@ -20,8 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4747944981389012}
   - component: {fileID: 212074306230297868}
-  - component: {fileID: 65578971447995228}
   - component: {fileID: 114811269490479194}
+  - component: {fileID: 61642693464844516}
   m_Layer: 0
   m_Name: SlowFish
   m_TagString: SlowFish
@@ -42,18 +42,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &65578971447995228
-BoxCollider:
+--- !u!61 &61642693464844516
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1698149914400394}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 7.09, y: 7.09}
+    newSize: {x: 7.09, y: 7.09}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.0633354, y: 4.05778, z: 0.20000002}
-  m_Center: {x: -0.19704863, y: 0.57507545, z: 0}
+  m_Size: {x: 7.09, y: 7.09}
+  m_EdgeRadius: 0
 --- !u!114 &114811269490479194
 MonoBehaviour:
   m_ObjectHideFlags: 1

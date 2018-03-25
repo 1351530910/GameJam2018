@@ -11,7 +11,7 @@ public class Main {
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
     public static void setup(){
-        ViewController.Init();
+       // ViewController.Init();
     }
 
     public static void settimer(double bpm,double duration)
