@@ -78,7 +78,6 @@ public class PlayerScript : MonoBehaviour
 		//camera.transform.position = camerapos;
 		float horizontalMovement = Input.GetAxis ("Horizontal") * inversion;
 		float verticalMovement = Input.GetAxis ("Vertical");
-		Debug.Log ("vertical" + verticalMovement);
 
 		timeleft -= 0.02f;
 		timeleft2 -= 0.02f;//
@@ -233,12 +232,24 @@ public class PlayerScript : MonoBehaviour
 			transform.position = currentpos;
 		}
 
-		if (ScoreController.score > 50) {
+		if (ScoreController.score >= 50) {
 			fat = true;
 			fatTransformation ();
 		}
 
+		if (ScoreController.score < 50) {
+			fat = false;
+			fatTransformation ();
+		}
+
+		if(fat) Debug.Log (fat);
+
+	
+		if (Time.time >= 120) {
+			Application.LoadLevel ("gameOver");						
+		}
 	}
+
 
 
 	// Collision with fish
@@ -249,19 +260,20 @@ public class PlayerScript : MonoBehaviour
 			ScoreController.AddScore (3);
 		} else if (other.tag == "SlowFish") {
 			velocity = 0.1f; 
-			PlayerScript.timeleft2 = 5.0f; 
+			PlayerScript.timeleft2 = 5.0f;
+			ScoreController.RemoveScore (2);
 		} else if (other.tag == "InvertFish") {
 			inversion = -1; 
-			PlayerScript.timeleft = 5.0f; 
+			PlayerScript.timeleft = 5.0f;
+			ScoreController.RemoveScore (2);
 		} else if (other.tag == "Fish") {
 
 			ScoreController.AddScore (1);
 
 		}
-		Debug.Log ("before fish");
+
 		other.gameObject.SetActive (false);
 		//	ViewController.Update();
-		Debug.Log ("score" + ScoreController.score);
 
 	}
 
