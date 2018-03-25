@@ -104,7 +104,7 @@ public class GameOverController : MonoBehaviour
 		
 		GameObject newFish;
 		newFish = Instantiate (fishPrefab, new Vector2 (fishStackSpawn.transform.position.x,
-			fishStackSpawn.transform.position.y + fishCount * 4), Quaternion.Euler(0.0f, 0.0f, Random.Range(0.0f, 360.0f)));		
+			fishStackSpawn.transform.position.y + fishCount * 2), Quaternion.Euler(0.0f, 0.0f, Random.Range(0.0f, 360.0f)));		
 
 		fishCount++;
 

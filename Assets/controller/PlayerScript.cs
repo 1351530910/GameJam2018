@@ -5,6 +5,10 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 {
 
+	public AudioClip crunch;
+	public AudioClip argh;
+	public AudioSource audiosource;
+
 	public static float velocity;
 	public static float jump = 300;
 	public static Rigidbody2D rigidbody;
@@ -40,6 +44,8 @@ public class PlayerScript : MonoBehaviour
 
 	void Start ()
 	{
+		audiosource = GetComponent<AudioSource> ();
+
 		//camera = GameObject.Find ("Main Camera");
 		Debug.Log ("did start");
 		imageNormal = GameObject.Find ("imageNormal");
@@ -260,18 +266,21 @@ public class PlayerScript : MonoBehaviour
 
 		if (other.tag == "BigFish") {
 			ScoreController.AddScore (3);
+			audiosource.PlayOneShot (crunch, 100f);
 		} else if (other.tag == "SlowFish") {
 			velocity = 0.1f; 
 			PlayerScript.timeleft2 = 5.0f;
 			ScoreController.RemoveScore (2);
+			audiosource.PlayOneShot (argh, 1f);
 		} else if (other.tag == "InvertFish") {
 			inversion = -1; 
 			PlayerScript.timeleft = 5.0f;
 			ScoreController.RemoveScore (2);
+			audiosource.PlayOneShot (argh, 1f);
 		} else if (other.tag == "Fish") {
 
 			ScoreController.AddScore (1);
-
+			audiosource.PlayOneShot (crunch, 100f);
 		}
 
 		other.gameObject.SetActive (false);
