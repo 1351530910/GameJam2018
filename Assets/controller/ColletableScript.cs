@@ -44,4 +44,6 @@ public class ColletableScript : MonoBehaviour {
             Debug.Log(ViewController.score);
         }
     }
+
+
 }
