@@ -7,6 +7,7 @@ TagManager:
   - BigFish
   - SlowFish
   - InvertFish
+  - SettingsPaused
   layers:
   - Default
   - TransparentFX
