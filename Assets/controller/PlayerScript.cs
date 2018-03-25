@@ -54,8 +54,8 @@ public class PlayerScript : MonoBehaviour
 		//camera.transform.position = camerapos;
 		float horizontalMovement = Input.GetAxis ("Horizontal")  * inversion;
 		float verticalMovement = Input.GetAxis ("Vertical");
-
-		if (transform.position.y < 1.0f) {
+		Debug.Log ("vertical" + verticalMovement);
+		if (transform.position.y <1f) {
 			if (verticalMovement > 0) {
 				rigidbody.AddForce (new Vector2 (0, jump));
 			}

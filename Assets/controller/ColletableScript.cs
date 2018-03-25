@@ -8,7 +8,7 @@ public class ColletableScript : MonoBehaviour {
 		
 		transform.Translate(new Vector2(0f, 0.04f));  
 
-	if (transform.position.y<-5.0f){
+	if (transform.position.y> 5.0f){
 			this.gameObject.SetActive (false);
 		}
 	}
