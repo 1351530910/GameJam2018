@@ -1997,6 +1997,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisText: {fileID: 0}
+  numbers:
+  - {fileID: 1153503477545234, guid: 941ba3d119f10704aa4f0712711d18ad, type: 2}
+  - {fileID: 1064598435926660, guid: 9909ee625dec10c42b698139417a8ea7, type: 2}
+  - {fileID: 1770336043983032, guid: d8519f89e8544c1439c218c3d86fbb48, type: 2}
+  - {fileID: 1913186929218114, guid: a757d750861793848a3ebc18de47a503, type: 2}
+  - {fileID: 1632069610909264, guid: bf313c3db44a8664aa547e1cf9203173, type: 2}
+  - {fileID: 1793083729982014, guid: b24ae78e295371045ab70c144258abfd, type: 2}
+  - {fileID: 1940118171009280, guid: abc37a51ad62ced4c8b36dbed04337fe, type: 2}
+  - {fileID: 1257625935407646, guid: 7a1a7e3472f9fa645a8f8eca95e09acf, type: 2}
+  - {fileID: 1996651387147076, guid: e4cd8848b8782a34f9754903027e7330, type: 2}
+  - {fileID: 1548450129209292, guid: c9f668ab224e36b4ea675ae602291edf, type: 2}
+  numFontStart: {fileID: 873245027}
 --- !u!1 &508258224
 GameObject:
   m_ObjectHideFlags: 0
@@ -3149,6 +3161,39 @@ Transform:
   m_PrefabParentObject: {fileID: 4890231458546854, guid: 9be62579ab7987642b18d7081c141dc0,
     type: 2}
   m_PrefabInternal: {fileID: 751612977}
+--- !u!1 &873245027
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 873245028}
+  m_Layer: 5
+  m_Name: FontStart
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &873245028
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 873245027}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1749904271}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 16.7, y: -38.1}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &875065430
 GameObject:
   m_ObjectHideFlags: 0
@@ -5532,6 +5577,7 @@ RectTransform:
   m_Children:
   - {fileID: 507520917}
   - {fileID: 1221513575}
+  - {fileID: 873245028}
   m_Father: {fileID: 1916745456}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
