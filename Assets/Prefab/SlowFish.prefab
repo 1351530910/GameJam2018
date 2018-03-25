@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212074306230297868}
   - component: {fileID: 114811269490479194}
   - component: {fileID: 61642693464844516}
+  - component: {fileID: 122547536652693078}
   m_Layer: 0
   m_Name: SlowFish
   m_TagString: SlowFish
@@ -78,6 +79,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 634d75acfd2444eafbc57c19dcd3d505, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!122 &122547536652693078
+Halo:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1698149914400394}
+  m_Enabled: 1
+  m_Color:
+    serializedVersion: 2
+    rgba: 4287838463
+  m_Size: 0.92
 --- !u!212 &212074306230297868
 SpriteRenderer:
   m_ObjectHideFlags: 1

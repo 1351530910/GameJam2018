@@ -50,8 +50,11 @@ public class Main {
         countdown.Start();
     }
 	public static void updateldb(){
+		try{
+			
 		leaderboard.Sort ();
-		GameObject leaderb = GameObject.Find ("leaderboard");
+		GameObject leaderb = GameObject.FindGameObjectWithTag("ldb");
+		Debug.Log (leaderb);
 		Text l = leaderb.GetComponent<Text> ();
 		string txt = "leaderboard:\n";
 		for (int i = leaderboard.Count-1; i >= 0; i--) {
@@ -59,5 +62,7 @@ public class Main {
 		}
 		l.text = txt;
 		Serializer.Save ("savedata", leaderboard);
+		}catch(System.Exception e){
+		}
 	}
 }

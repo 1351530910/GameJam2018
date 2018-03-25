@@ -19,5 +19,8 @@ public class AudioScript : MonoBehaviour {
 		if (Time.timeScale == 0) {
 			audiosource.Pause ();
 		}
+		if (Time.timeScale == 1) {
+			audiosource.UnPause ();
+		}
 	}
 }

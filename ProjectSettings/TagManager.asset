@@ -10,6 +10,7 @@ TagManager:
   - SettingsPaused
   - Fish
   - Num
+  - ldb
   layers:
   - Default
   - TransparentFX
