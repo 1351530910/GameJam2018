@@ -9,6 +9,7 @@ TagManager:
   - InvertFish
   - SettingsPaused
   - Fish
+  - Num
   layers:
   - Default
   - TransparentFX
