@@ -12,6 +12,8 @@ public class GameOverController : MonoBehaviour
 	public GameObject ReturnButton;
 	public GameObject SpeechBubble;
 
+	public GameObject VomitMusic;
+
 	public GameObject fishStackSpawn;
 	public GameObject fishPrefab;
 	private int fishCount;
@@ -34,6 +36,7 @@ public class GameOverController : MonoBehaviour
 		Score.SetActive (false);
 		ReturnButton.SetActive (false);
 		SpeechBubble.SetActive (false);
+		vomitSystem.Play ();
 
 		fishCount = 0;
 		fishSpawnCount = 0f;
