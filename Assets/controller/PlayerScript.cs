@@ -246,6 +246,8 @@ public class PlayerScript : MonoBehaviour
 
 	
 		if (Time.time >= 120) {
+			Main.leaderboard.Add (ScoreController.score);
+			Main.updateldb ();
 			Application.LoadLevel ("gameOver");						
 		}
 	}
