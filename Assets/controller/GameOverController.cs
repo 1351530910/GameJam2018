@@ -99,6 +99,7 @@ public class GameOverController : MonoBehaviour
 		}
 	}
 
+
 	private void spawnFish() {
 		
 		GameObject newFish;
